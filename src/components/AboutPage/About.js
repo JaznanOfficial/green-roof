@@ -5,6 +5,7 @@ const About = () => {
         <div>
             this is about
             this is second about.
+            third about
         </div>
     );
 };
