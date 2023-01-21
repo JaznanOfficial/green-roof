@@ -4,6 +4,9 @@ const Header = () => {
     return (
         <div>
             header
+            header
+            header
+            header
         </div>
     );
 };
