@@ -19,11 +19,10 @@ const Header = () => {
                                     type="email"
                                     placeholder="Your Email address"
                                 />
-                                <button className=" -ml-5  hover:bg-indigo-600 bg-indigo-700 rounded-full text-base font-medium leading-none text-white p-6 px-9 uppercase focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700">
+                                <button className=" -ml-7  hover:bg-green-600 bg-green-700 rounded-full text-base font-medium leading-none text-white p-6 px-9 uppercase">
                                     subscribe
                                 </button>
                             </div>
-
                         </div>
                         <img
                             className="rounded-3xl"
@@ -33,11 +32,22 @@ const Header = () => {
                     </div>
 
                     <div>
-                        <div className="absolute text-gray-700">
-                            <p className="text-6xl mb-8 leading-tight font-bold ">
+                        <div className="absolute text-gray-700 top-[12%] left-[5%]">
+                            <p className="text-6xl mb-5 leading-tight font-bold ">
                                 Don't miss amazing <br /> grocery deals
                             </p>
-                            <p className="text-3xl">signUp for the daily newsletter</p>
+                            <p className="text-3xl mb-9">signUp for the daily newsletter</p>
+
+                            <div className="flex items-stretch mt-12">
+                                <input
+                                    className=" rounded-full rounded-r-none text-base leading-none text-gray-800 p-6 px-7 border border-transparent focus:outline-none focus:border-gray-500"
+                                    type="email"
+                                    placeholder="Your Email address"
+                                />
+                                <button className=" -ml-7  hover:bg-green-400 bg-green-500 rounded-full text-base font-medium leading-none text-white p-6 px-9 uppercase">
+                                    subscribe
+                                </button>
+                            </div>
                         </div>
                         <img
                             className="rounded-3xl"
