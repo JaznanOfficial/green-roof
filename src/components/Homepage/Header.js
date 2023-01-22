@@ -13,14 +13,17 @@ const Header = () => {
                             </p>
                             <p className="text-3xl mb-9">signUp for the daily newsletter</p>
 
-                            <div class="form-control">
+                            <div className="flex items-stretch mt-12">
                                 <input
-                                    type="text"
-                                    class="input"
-                                    placeholder="Enter e-mail adress"
+                                    className=" rounded-3xl rounded-r-none text-base leading-none text-gray-800 p-5 w-4/5 border border-transparent focus:outline-none focus:border-gray-500"
+                                    type="email"
+                                    placeholder="Your Email address"
                                 />
-                                <button class="btn">Subscribe</button>
+                                <button className="w-32 rounded-l-none hover:bg-indigo-600 bg-indigo-700 rounded-3xl text-base font-medium leading-none text-white p-5 uppercase focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700">
+                                    subscribe
+                                </button>
                             </div>
+
                         </div>
                         <img
                             className="rounded-3xl"
