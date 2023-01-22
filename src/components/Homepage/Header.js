@@ -15,11 +15,11 @@ const Header = () => {
 
                             <div className="flex items-stretch mt-12">
                                 <input
-                                    className=" rounded-3xl rounded-r-none text-base leading-none text-gray-800 p-5 w-4/5 border border-transparent focus:outline-none focus:border-gray-500"
+                                    className=" rounded-full rounded-r-none text-base leading-none text-gray-800 p-6 px-7 border border-transparent focus:outline-none focus:border-gray-500"
                                     type="email"
                                     placeholder="Your Email address"
                                 />
-                                <button className="w-32 rounded-l-none hover:bg-indigo-600 bg-indigo-700 rounded-3xl text-base font-medium leading-none text-white p-5 uppercase focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700">
+                                <button className=" -ml-5  hover:bg-indigo-600 bg-indigo-700 rounded-full text-base font-medium leading-none text-white p-6 px-9 uppercase focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700">
                                     subscribe
                                 </button>
                             </div>
