@@ -8,7 +8,7 @@ const icons = [HiMenuAlt1, HiOutlineHome, BsCart2, CgProfile];
 const TopNavigation = () => {
   return (
     <nav>
-      <div className="w-full bg-[#119744] shadow">
+      <div className="w-full bg-primary shadow">
         <div className="justify-between mx-auto md:items-center flex">
           <div className="w-0 lg:w-1/6">
             <div className="hidden lg:block flex items-center justify-between py-5">
@@ -41,7 +41,7 @@ const TopNavigation = () => {
         </div>
       </div>
 
-      <div className="w-full lg:hidden block fixed inset-x-0 bottom-0 z-10 shadow  bg-[#119744]">
+      <div className="w-full lg:hidden block fixed inset-x-0 bottom-0 z-10 shadow  bg-primary">
         <section id="bottom-navigation">
           <div
             id="tabs"
