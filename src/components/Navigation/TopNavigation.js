@@ -1,25 +1,104 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { HiMenuAlt1, HiOutlineHome } from "react-icons/hi";
+import { useEffect, useState, useRef } from "react";
+import { HiMenuAlt1, HiOutlineHome, HiSearch } from "react-icons/hi";
 import { BsCart2 } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { IoNotificationsOutline } from "react-icons/io5";
+import logo from "../../assets/images/logo2.png";
 const icons = [HiMenuAlt1, HiOutlineHome, BsCart2, CgProfile];
 
 const TopNavigation = () => {
+  const [data, setData] = useState([]);
+  const searchBox = useRef(null);
+
+  useEffect(() => {
+    const hideMobileMenu = (e) => {
+      if (!searchBox?.current?.contains(e.target)) {
+        setData([]);
+      }
+    };
+    document.addEventListener("mousedown", hideMobileMenu);
+    return () => document.removeEventListener("mousedown", hideMobileMenu);
+  }, []);
+
+  const onChange = (e) => {
+    // make API call
+    if (e.target.value === "") {
+      setData([]);
+    } else if (/^\s/.test(e.target.value)) {
+      setData([]);
+    } else {
+      const url = `https://boighor-server.vercel.app/api/v1/book/search?char=${e.target.value}`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => setData(data));
+    }
+  };
+
+  const onFocus = (e) => {
+    if (e.target.value === "") {
+      setData([]);
+    } else if (/^\s/.test(e.target.value)) {
+      setData([]);
+    } else {
+      const url = `https://boighor-server.vercel.app/api/v1/book/search?char=${e.target.value}`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => setData(data));
+    }
+  };
+
   return (
     <nav>
-      <div className="w-full bg-primary shadow">
-        <div className="justify-between mx-auto md:items-center flex">
+      <div className="w-full bg-primary">
+        <div className="max-w-[1400px] justify-between mx-auto md:items-center flex">
           <div className="w-0 lg:w-1/6">
-            <div className="hidden lg:block flex items-center justify-between py-5">
-              <a href="" className="inline-block">
-                <h2 className="text-2xl font-bold text-white">Green</h2>
+            <div className="hidden lg:block flex items-center justify-between">
+              <a href="" className="inline-block mt-2">
+                <img className="w-32 h-9" src={logo} alt="" />
               </a>
             </div>
           </div>
-          <div className="w-full lg:w-4/5">
-            <div className="py-5">
-              <input className="w-full" type="text" />
+          <div className="w-full lg:w-4/5 relative" ref={searchBox}>
+            <div className="relative">
+              <div className="py-5">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <HiSearch />
+                </div>
+                <input
+                  type="text"
+                  className="w-full py-3 pl-10 text-sm text-gray-900 rounded outline-0 border-0"
+                  placeholder="Search for products (e.g. vegetable)"
+                  required
+                  onChange={onChange}
+                  onFocus={onFocus}
+                />
+                <ul className="drop-shadow-lg mt-1 rounded absolute bg-white w-full z-10 max-h-[60vh] overflow-y-scroll">
+                  {data.result
+                    ? data.result?.map((item, i) => {
+                        return (
+                          <li className="px-4 py-2 hover:bg-light-green cursor-pointer" key={i}>
+                            <div className="flex items-center">
+                              <div className="w-10 mr-5">
+                                <img
+                                  className="w-full object-fit"
+                                  src={item?.imgURL}
+                                  alt=""
+                                />
+                              </div>
+                              <div>
+                                <p>{item?.title}</p>
+                                <p className="text-secondary font-bold text-xl">
+                                  {item?.sell_price}&#2547;
+                                </p>
+                              </div>
+                            </div>
+                          </li>
+                        );
+                      })
+                    : ""}
+                </ul>
+              </div>
             </div>
           </div>
           <div className="w-0 lg:w-1/5">
